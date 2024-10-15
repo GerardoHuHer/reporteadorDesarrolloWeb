@@ -1,21 +1,19 @@
-import "jquery"
-
-function talent(){
-   $.ajax({
-        url: "../../sql.php",
+function talent() {
+    $.ajax({
+        url: "../sql.php",
         method: "post",
         data: {
-            query: "SELECT * FROM asesor;",
+            query: "SELECT * FROM asesor;"
         },
-        success:(response) => {
+        success: (response) => {
             talents = JSON.parse(response);
-            html = "";
-            talents.forEach(t => {
-               html += "<option value'" + t[ID] + "'> " + t[Nombre] + "</option>";
-            });
+            html = "<option value='' disabled selected>Selecciona una opción</option>";
+            for (let i = 0; i < talents.length; i++) {
+                html += "<option value='" +  talents[i]["ID"] + "'> " + talents[i]["Nombre"] + "</option>";
+            }
             $("#talent").html(html);
-        },
-   });
+        }
+    });
 }
 
-talent()
+talent();
