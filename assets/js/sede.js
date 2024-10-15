@@ -1,19 +1,19 @@
-function talent() {
+function sede() {
     $.ajax({
         url: "./sql.php",
         method: "post",
         data: {
-            query: "SELECT * FROM asesor;"
+            query: "SELECT ID, id_Sede FROM `asesoria` ;"
         },
         success: (response) => {
             talents = JSON.parse(response);
             html = "<option value='' disabled selected>Selecciona una opción</option>";
             for (let i = 0; i < talents.length; i++) {
-                html += "<option value='" +  talents[i]["ID"] + "'> " + talents[i]["Nombre"] + "</option>";
+                html += "<option value='" +  talents[i]["ID"] + "'> " + talents[i]["id_Sede"] + "</option>";
             }
-            $("#talent").html(html);
+            $("#sede").html(html);
         }
     });
 }
 
-talent();
+sede();
