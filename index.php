@@ -8,8 +8,13 @@
 </head>
 
 <body>
-    <?php include "./components/sedes.php"; ?>
+    <input type="date" id="inicio" name="inicio" placeholder="Fecha de inicio">
+    <input type="date" id="fin" name="fin" placeholder="Fecha de fin">
+    <?php include "./components/sedes.php"; ?> 
     <?php include "./components/talent.php"; ?>
+    <?php include "./components/categoria.php"; ?>
+
+    
 
 </body>
 
@@ -18,3 +23,4 @@
 
 <script src="./assets/js/sede.js"></script>
 <script src="./assets/js/talent.js"></script>
+<script src="./assets/js/categoria.js"></script>
