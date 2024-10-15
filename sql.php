@@ -15,10 +15,30 @@ $usr = "pantera";
 $pwd = "cualquiera";
 $dbname = "panteras";
 
-$conn = new mysqli($host, $usr, $pwd, $dbname);
+// $host = $_ENV["HOST"];
+// $user = $_ENV["USER"];
+// $password = $_ENV["PASSWORD"];
+// $db = $_ENV["DB"];
 
-if($conn -> connect_error) {
-    echo "error de conexion ".$conn->connect_error;
-} else {
-    echo "connected";
+$host = "localhost";
+$user = "gerardo";
+$password = "cualquiera";
+$db = "proyecto";
+
+
+$conn = new mysqli($host, $user, $password, $db);
+
+$result = $conn->query($_POST['query']);
+
+$respuesta = [];
+if($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+        array_push($respuesta, $row);
+    }
 }
+
+echo json_encode($respuesta);
+
+$conn->close();
+
+
