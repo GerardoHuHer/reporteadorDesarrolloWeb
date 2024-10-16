@@ -20,6 +20,3 @@ function categoria() {
 }
 
 categoria();
-
-
-pito

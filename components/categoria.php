@@ -1,4 +1,4 @@
-<select name="categoria" id="categoria">
+<select class="form-select" name="categoria" id="categoria">
 
 </select>
 

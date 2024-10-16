@@ -3,11 +3,11 @@
 ?>
 
 <style>
-    .select-container { flex-direction: column; }
-    .button-container { margin-left: 0; }
+
 </style>
 
 <body>
+
     <form method="post">
         <div class="d-flex">
             <div class="m-auto filtro-container">
@@ -19,9 +19,18 @@
                     <input type="date" id="fin" name="fin" placeholder="Fecha de fin">
                 </div>
                 <div class="d-flex select-container">
-                    <select class="form-select" name="talent" id="talent" onclick="agregar()"></select>
-                    <select class="form-select" name="sede" id="sede"></select>
-                    <select class="form-select" name="categoria" id="categoria"></select>
+                    <div>
+                        <?php include "./components/talent.php"; ?> 
+                    </div>
+                    <div>
+                        <?php include "./components/sedes.php"; ?> 
+                    </div>
+                    <div>
+                        <?php include "./components/categoria.php"; ?> 
+                    </div>
+                </div>
+                <div class="filter-container">
+
                 </div>
                 <div class="button-container">
                     <button class="btn btn-secondary">Eliminar</button>
