@@ -8,7 +8,7 @@ function categoria() {
         success: (response) => {
             categorias = JSON.parse(response);
             console.log(response);
-            html = "<option value='' disabled selected>Selecciona una opción</option>";
+            html = "<option value='' disabled selected>Selecciona una categoría</option>";
             for (let i = 0; i < categorias.length; i++) {
                 html += "<option value='" +  categorias[i]["ID"] + "'> " + categorias[i]["Nombre"] + "</option>";
 
@@ -20,3 +20,6 @@ function categoria() {
 }
 
 categoria();
+
+
+pito

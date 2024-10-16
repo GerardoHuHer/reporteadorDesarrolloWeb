@@ -1,8 +1,9 @@
-
-<select name="prueba" id="prueba" onclick="prueba()">
+<!-- Este select es una representación de cualquier otro que queramos usar, ya sea talents, categories y sedes. -->
+<select name="prueba" id="prueba" onclick="anadir()">
 
 </select>
 
+<!-- Esta es la lista que vamos a mostrar con los filtros -->
 <div id="lista-prueba">
 
 </div>

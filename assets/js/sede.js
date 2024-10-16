@@ -6,6 +6,7 @@ function sede() {
             query: "SELECT ID, id_Sede FROM `asesoria` ;"
         },
         success: (response) => {
+
             sedes = JSON.parse(response);
             html = "<option value='' disabled selected>Selecciona una opción</option>";
             for (let i = 0; i < sedes.length; i++) {

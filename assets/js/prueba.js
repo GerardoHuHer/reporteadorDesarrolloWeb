@@ -1,15 +1,3 @@
-var categories = [];
-function prueba() {
-    selectedValue = document.getElementById("prueba").value;
-    console.log("SelectedValue: ", selectedValue);
-    if (selectedValue !== "" && ! categories.includes(selectedValue)) {
-        categories.push(selectedValue);
-
-    }
-    console.log("Array: ", categories);
-    imprimir();
-}
-
 function sede() {
     $.ajax({
         url: "../sql.php",
@@ -30,37 +18,56 @@ function sede() {
 
 sede();
 
+var ids = [];
 
-function imprimir(){
-    if(categories.length === 0){
+function anadir() {
+    selectedValue = document.getElementById("prueba").value;
+    console.log("SelectedValue: ", selectedValue);
+    if (selectedValue !== "" && ! ids.includes(selectedValue)) {
+        ids.push(selectedValue);
+
+    }
+    console.log("Array: ", ids);
+    imprimir();
+}
+
+
+function imprimir() {
+    if (ids.length === 0) {
         query_aux = "SELECT * FROM asesor WHERE ID = -1";
     } else {
         query_aux = "SELECT * FROM asesor WHERE ";
-        for(let i = 0; i < categories.length; i++){
-            if(i === categories.length - 1)  {
-               query_aux  += " ID = " + categories[i] ;
-            } else{
-                query_aux += " ID = " + categories[i] + " OR";
+        for (let i = 0; i < ids.length; i++) {
+            if (i === ids.length - 1) {
+                query_aux += " ID = " + ids[i] + " ;";
+            } else {
+                query_aux += " ID = " + ids[i] + " OR";
             }
         }
-        query_aux += ";";
         console.log("Query: ", query_aux);
     }
-     $.ajax({
+    $.ajax({
         url: "../sql.php",
         method: "post",
         data: {
-            query: query_aux,
+            query: query_aux
         },
         success: (response) => {
             sedes = JSON.parse(response);
-            if(sedes.length === 0){
-               html = "<p>No se ha hecho ninguna búsqueda</p>" ;
-               return; 
+            if (sedes.length === 0) {
+                html = "";
+                $("#lista-prueba").html(html);
+                return;
             }
             html = "";
             for (let i = 0; i < sedes.length; i++) {
-                html += `<div>${sedes[i]["Nombre"]} <button id="talents-id${sedes[i]["ID"]}" onclick="borrar()" >Borrar</button></div>`;
+                html += `<div>${
+                    sedes[i]["Nombre"]
+                } <button id='talent-${
+                    sedes[i]["ID"]
+                }' onclick='borrar("talent-${
+                    sedes[i]["ID"]
+                }", 7)'>Borrar</button></div>`;
             }
             $("#lista-prueba").html(html);
         }
@@ -69,7 +76,8 @@ function imprimir(){
 imprimir();
 
 
-function borrar(){
-    selectedValue =
+function borrar(n, m) { // Aquí va el código que borra un ID del arreglo con los id's
+    selectedValue = document.getElementById(n).id.slice(m); // talent-1
+    ids = ids.filter(el => el !== selectedValue);
     imprimir();
 }
