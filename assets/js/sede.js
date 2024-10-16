@@ -6,10 +6,11 @@ function sede() {
             query: "SELECT ID, id_Sede FROM `asesoria` ;"
         },
         success: (response) => {
-            talents = JSON.parse(response);
-            html = "<option value='' disabled selected>Seleccione una sede</option>";
-            for (let i = 0; i < talents.length; i++) {
-                html += "<option value='" +  talents[i]["ID"] + "'> " + talents[i]["id_Sede"] + "</option>";
+
+            sedes = JSON.parse(response);
+            html = "<option value='' disabled selected>Selecciona una opción</option>";
+            for (let i = 0; i < sedes.length; i++) {
+                html += "<option value='" +  sedes[i]["ID"] + "'> " + sedes[i]["id_Sede"] + "</option>";
             }
             $("#sede").html(html);
         }
