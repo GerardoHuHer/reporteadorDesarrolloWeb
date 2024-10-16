@@ -60,7 +60,7 @@ function imprimir(){
             }
             html = "";
             for (let i = 0; i < sedes.length; i++) {
-                html += `<div>${sedes[i]["Nombre"]} <button >Borrar</button></div>`;
+                html += `<div>${sedes[i]["Nombre"]} <button id="talents-id${sedes[i]["ID"]}" onclick="borrar()" >Borrar</button></div>`;
             }
             $("#lista-prueba").html(html);
         }
@@ -70,6 +70,6 @@ imprimir();
 
 
 function borrar(){
-    // Aquí va el código que borra un ID del arreglo con los id's
+    selectedValue =
     imprimir();
 }
