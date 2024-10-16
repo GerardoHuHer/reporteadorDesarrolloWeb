@@ -25,14 +25,15 @@ function anadir() {
     console.log("SelectedValue: ", selectedValue);
     if (selectedValue !== "" && ! ids.includes(selectedValue)) {
         ids.push(selectedValue);
-
     }
     console.log("Array: ", ids);
+    document.getElementById('prueba').selectedIndex = 0;
     imprimir();
 }
 
 
 function imprimir() {
+    let query_aux = "";
     if (ids.length === 0) {
         query_aux = "SELECT * FROM asesor WHERE ID = -1";
     } else {
@@ -53,13 +54,12 @@ function imprimir() {
             query: query_aux
         },
         success: (response) => {
+            html = "";
             sedes = JSON.parse(response);
             if (sedes.length === 0) {
-                html = "";
                 $("#lista-prueba").html(html);
                 return;
             }
-            html = "";
             for (let i = 0; i < sedes.length; i++) {
                 html += `<div>${
                     sedes[i]["Nombre"]
@@ -78,6 +78,8 @@ imprimir();
 
 function borrar(n, m) { // Aquí va el código que borra un ID del arreglo con los id's
     selectedValue = document.getElementById(n).id.slice(m); // talent-1
+
     ids = ids.filter(el => el !== selectedValue);
+
     imprimir();
 }
