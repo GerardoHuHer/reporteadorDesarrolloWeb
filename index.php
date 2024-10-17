@@ -56,3 +56,4 @@
 <script src="./assets/js/sede.js"></script>
 <script src="./assets/js/talent.js"></script>
 <script src="./assets/js/categoria.js"></script>
+<script src="./assets/js/query.js"></script>
