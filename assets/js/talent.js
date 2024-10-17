@@ -3,7 +3,7 @@ function talent() {
         url: "./sql.php",
         method: "post",
         data: {
-            query: "SELECT * FROM asesor;"
+            query: "SELECT * FROM asesor;" 
         },
         success: (response) => {
             talents = JSON.parse(response);

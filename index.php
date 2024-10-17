@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
 </head>
 
 <body>
-    
+
     <form method="post">
         <div class="d-flex">
             <div class="m-auto filtro-container">
@@ -23,15 +24,15 @@
                 </div>
                 <div class="d-flex select-container">
                     <div>
-                        <select class="form-select" name="talent" id="talent" onclick="anadirTalent()">
-
-                        </select>
+                        <select class="form-select" name="talent" id="talent" onclick="anadirTalent()"></select>
                     </div>
                     <div>
                         <select class="form-select" name="sedes" id="sedes" onclick="anadirSede()"></select>
                     </div>
                     <div>
-                        <?php include "./components/categoria.php"; ?>
+                        <select class="form-select" name="categoria" id="categoria" onclick="anadirCategoria()" >
+ 
+                        </select>
                     </div>
                 </div>
                 <div class="button-container">
@@ -42,7 +43,7 @@
                 <div class="filter-container">
                     <div id="talents-container"></div>
                     <div id="sedes-container"></div>
-                    <div id="categories-container"></div>   
+                    <div id="categorias-container"></div>
                 </div>
             </div>
         </div>
