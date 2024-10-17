@@ -20,17 +20,21 @@
                 </div>
                 <div class="d-flex select-container">
                     <div>
-                        <?php include "./components/talent.php"; ?> 
+                        <select class="form-select" name="talent" id="talent" onclick="anadir()">
+
+                        </select>
                     </div>
                     <div>
-                        <?php include "./components/sedes.php"; ?> 
+                        <?php include "./components/sedes.php"; ?>
                     </div>
                     <div>
-                        <?php include "./components/categoria.php"; ?> 
+                        <?php include "./components/categoria.php"; ?>
                     </div>
                 </div>
                 <div class="filter-container">
-
+                    <div class="talents-container"></div>
+                    <div class="sedes-container"></div>
+                    <div class="categories-container"></div>
                 </div>
                 <div class="button-container">
                     <button class="btn btn-secondary">Eliminar</button>
