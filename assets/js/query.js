@@ -20,7 +20,6 @@ function query() {
     });
 
     console.log(diccionario); // Muestra el diccionario en la consola   
+
 }
-
-
 query();
