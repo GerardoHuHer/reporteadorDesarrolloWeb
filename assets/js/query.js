@@ -191,6 +191,7 @@ function sendRequestCategoria() {
 
 function changeNumber(n = 1){
     num = n;
+    query();
 }
 
 
