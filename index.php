@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="button-container">
-                    <button type="button" class="btn btn-secondary" onclick="borrarFiltros()">Eliminar</button>
+                    <button type="button" class="btn btn-secondary" onclick="borrarFull()">Eliminar</button>
                     <button onclick="query()" type="button" class="btn btn-primary">Buscar</button>
                 </div>
 
@@ -53,6 +53,7 @@
             </div>
         </div>
     </form>
+    <div class="d-flex"><ul class="m-auto"><li><button type="button" class="btn" onclick="changeNumber(1)">Resultados</button></li><li><button type="button" class="btn" onclick="changeNumber(2)">Categoria</button></li></ul></div>
     <div class="d-flex" id="tablas">
 
     </div>
@@ -61,9 +62,10 @@
 </html>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-<script src="./assets/js/sede.js"></script>
+<!-- <script src="./assets/js/sede.js"></script>
 <script src="./assets/js/talent.js"></script>
-<script src="./assets/js/categoria.js"></script>
+<script src="./assets/js/categoria.js"></script> -->
 <script src="./assets/js/query.js"></script>
 <script src="./assets/js/fechas.js"></script>
-<script src="./assets/js/borrar.js"></script>
+<!-- <script src="./assets/js/borrar.js"></script> -->
+<script src="./assets/js/junto.js"></script>
