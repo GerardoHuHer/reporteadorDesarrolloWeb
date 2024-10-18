@@ -81,3 +81,4 @@ function borrarTalent(n, m) {
     ids = ids.filter(el => el !== selectedValue);
     imprimirTalent();
 }
+
