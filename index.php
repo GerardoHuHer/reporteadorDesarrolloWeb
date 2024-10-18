@@ -19,8 +19,8 @@
                     Pruebita
                 </h1>
                 <div class="fechas">
-                    <input type="date" id="inicio" name="inicio" placeholder="Fecha de inicio">
-                    <input type="date" id="fin" name="fin" placeholder="Fecha de fin">
+                    <input type="date" id="fecha-inicio" name="fecha-inicio" onchange="obtenerFechaInicio()">
+                    <input type="date" id="fecha-fin" name="fecha-fin" placeholder="Fecha de fin" onchange="obtenerFechaFin()">
                 </div>
                 <div class="d-flex select-container">
                     <div>
@@ -30,8 +30,8 @@
                         <select class="form-select" name="sedes" id="sedes" onclick="anadirSede()"></select>
                     </div>
                     <div>
-                        <select class="form-select" name="categoria" id="categoria" onclick="anadirCategoria()" >
- 
+                        <select class="form-select" name="categoria" id="categoria" onclick="anadirCategoria()">
+
                         </select>
                     </div>
                 </div>
@@ -41,6 +41,7 @@
                 </div>
 
                 <div class="filter-container">
+                    <div id="date-container"></div>
                     <div id="talents-container"></div>
                     <div id="sedes-container"></div>
                     <div id="categorias-container"></div>
@@ -57,3 +58,4 @@
 <script src="./assets/js/talent.js"></script>
 <script src="./assets/js/categoria.js"></script>
 <script src="./assets/js/query.js"></script>
+<script src="./assets/js/fechas.js"></script>
