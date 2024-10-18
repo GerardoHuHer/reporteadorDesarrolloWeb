@@ -64,7 +64,7 @@ function imprimirSede() {
                 return;
             }
             for (let i = 0; i < sedes.length; i++) {
-                html += `<div>${
+                html += `<div id="s-${sedes[i]["id_Sede"]}">${
                     sedes[i]["id_Sede"]
                 } <button id='sede-${
                     sedes[i]["ID"]

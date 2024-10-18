@@ -77,7 +77,7 @@ function imprimirCategoria() {
       }
       for (let i = 0; i < categorias.length; i++) {
         console.log("Entré al for");
-        html += `<div>${
+        html += `<div id="c-${categorias[i]["ID"]}">${
                     categorias[i]["Nombre"]
                 } <button id='categoria-${
                     categorias[i]["ID"]
