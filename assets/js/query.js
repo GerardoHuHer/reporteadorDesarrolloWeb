@@ -1,5 +1,10 @@
 function query() {
     let filterContainer = document.getElementById("filter-container");
+    console.log("filterContainer: ", filterContainer);
+    if (! filterContainer) {
+        console.error("No se encontró el elemento con id 'filter-container'");
+        return;
+    }
     let parentDivs = filterContainer.children; // Obtiene todos los hijos del contenedor (los 3 divs principales)
     let diccionario = {};
 
@@ -19,7 +24,6 @@ function query() {
         diccionario[index + 1] = ids;
     });
 
-    console.log(diccionario); // Muestra el diccionario en la consola   
+    console.log(diccionario); // Muestra el diccionario en la consola
 
 }
-query();

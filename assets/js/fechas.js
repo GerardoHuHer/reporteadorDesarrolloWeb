@@ -1,26 +1,38 @@
 var fechas = [];
+var fechaInicio;
+var fechaFinal
 
 function obtenerFechaInicio() {
   let input = document.getElementById("fecha-inicio");
-  let fecha = input.valueAsDate;
+  fechaInicio = input.value;
   let fechaString = input.value;
-  if (fecha) {
-    console.log("Fecha inicio seleccionada:", fecha);
+  if (fechaInicio) {
+    console.log("Fecha inicio seleccionada:", fechaInicio);
     console.log("Fecha inicio seleccionada en string:", fechaString);
+    imprimirFechaInicio();
   } else {
-    console.log("No se detectó la fecha");
+    console.error("No se detectó la fecha");
   }
 }
 
 function obtenerFechaFin() {
   let input = document.getElementById("fecha-fin");
-  let fecha = input.valueAsDate;
-  let fechaString = input.value;
-  if (fecha) {
-    console.log("Fecha fin seleccionada:", fecha);
-    console.log("Fecha fin seleccionada en string:", fechaString);
+  fechaFinal = input.value;
+  if (fechaFinal) {
+    console.log("Fecha fin seleccionada:", fechaFinal);
+    imprimirFechaFin();
+    // console.log("Fecha fin seleccionada en string:", fechaString);
   } else {
-    console.log("No se detectó la fecha");
+    console.error("No se detectó la fecha");
   }
 }
 
+function imprimirFechaInicio(){
+  let result =  document.getElementById("fecha-inicio-container").innerHTML += `<div>${fechaInicio}</div>`;
+  console.log("Result: ", result);
+}
+
+function imprimirFechaFin(){
+  let result =  document.getElementById("fecha-fin-container").innerHTML += `<div>${fechaFinal}</div>`;
+  console.log("Result: ", result);
+}

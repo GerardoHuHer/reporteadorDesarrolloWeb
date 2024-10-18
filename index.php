@@ -36,12 +36,15 @@
                     </div>
                 </div>
                 <div class="button-container">
-                    <button class="btn btn-secondary">Eliminar</button>
-                    <button type="submit" class="btn btn-primary">Buscar</button>
+                    <button type="button" class="btn btn-secondary">Eliminar</button>
+                    <button onclick="query()" type="button" class="btn btn-primary">Buscar</button>
                 </div>
 
-                <div class="filter-container">
-                    <div id="date-container"></div>
+                <div id="filter-container" class="filter-container">
+                    <div id="date-container">
+                       <div id="fecha-inicio-container"></div> 
+                        <div id="fecha-fin-container"></div> 
+                   </div>
                     <div id="talents-container"></div>
                     <div id="sedes-container"></div>
                     <div id="categorias-container"></div>
