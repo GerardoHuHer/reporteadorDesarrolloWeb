@@ -30,8 +30,8 @@ function query() {
         diccionario[2].push(new Date().toISOString().split('T')[0]);
     }
     console.log(diccionario);
-    if(!num){
-       num = 1;
+    if (! num) {
+        num = 1;
     }
     cambiarTabla(parseInt(num));
 }
@@ -107,7 +107,7 @@ function sendRequestRespuestas() {
             for (let i = 0; i < respuesta.length; i++) {
                 html += `<tr>
                     <td>${
-                    respuesta[i]["ID_talent"]
+                    respuesta[i]["ID_Asesoria"]
                 }</td>
                                         <td>${
                     respuesta[i]["Correo"]
@@ -133,63 +133,9 @@ function sendRequestRespuestas() {
 }
 
 
-function sendRequestCategoria() {
-    fechaIni = diccionario[1];
-    fechaFin = diccionario[2];
-    arrTalents = diccionario[3]
-    arrSedes = diccionario[4];
-    arrCategorias = diccionario[5];
-    queryResultados = "SELECT categoria.ID AS Categoria_ID, categoria.Llave, categoria.Nombre, COUNT(asesoria.ID) AS Sesiones, COUNT(DISTINCT asesoria.Correo) AS Profesores, SUM(asesoria.Duracion) AS Total_Horas_Prof, SUM(asesoria.Duracion * (SELECT COUNT(asesoria_asesor.id_Asesor) FROM asesoria_asesor WHERE asesoria_asesor.id_Asesoria = asesoria.ID)) AS Total_Horas_Talent, AVG(asesoria.Duracion) AS Duracion_Media_Prof, AVG(asesoria.Duracion * (SELECT COUNT(asesoria_asesor.id_Asesor) FROM asesoria_asesor WHERE asesoria_asesor.id_Asesoria = asesoria.ID)) AS Duracion_Media_Talent FROM asesoria JOIN categoria ON asesoria.id_Categoria = categoria.ID JOIN asesoria_asesor ON asesoria.ID = asesoria_asesor.id_Asesoria WHERE    asesoria.Fecha BETWEEN '" + fechaIni +"' AND '"+fechaFin+"' GROUP BY categoria.ID, categoria.Llave, categoria.Nombre ORDER BY categoria.ID;";
-    $.ajax({
-        url: "./sql.php",
-        method: "post",
-        data: {
-            query: queryResultados
-        },
-        success: (response) => {
-            html = "";
-            respuesta = JSON.parse(response);
-            if (respuesta.length === 0) {
-                $("#tablas").html(html);
-                return;
-            }
-            html = "<table class='m-auto'><thead><tr><th>Key</th><th>Nombre</th><th>Sesiones</th><th>Profesores</th><th>Total Horas Prof</th><th>Total Horas TALENT</th><th>Duración Media Prof</th><th>Duración Media TALENT</th></tr></thead>"
-            html += "<tbody>"
-            for (let i = 0; i < respuesta.length; i++) {
-                html += `<tr>
-                    <td>${
-                    respuesta[i]["Llave"]
-                }</td>
-                                        <td>${
-                    respuesta[i]["Nombre"]
-                }</td>
-                <td>${
-                    respuesta[i]["Sesiones"]
-                }</td>
-                <td>${
-                    respuesta[i]["Profesores"]
-                }</td>
-                <td>${
-                    respuesta[i]["Total_Horas_Prof"]
-                }</td>
-                <td>${
-                    respuesta[i]["Total_Horas_Talent"]
-                }</td>
-                  <td>${
-                    respuesta[i]["Duracion_Media_Prof"]
-                }</td>
-                <td>${
-                    respuesta[i]["Duracion_Media_Talent"]
-                }</td>
-                </tr>`;
-            }
-            html += "</tbody></table>",
-            $("#tablas").html(html);
-        }
-    });
-}
+function sendRequestCategoria() {}
 
-function changeNumber(n = 1){
+function changeNumber(n = 1) {
     num = n;
     query();
 }
@@ -197,10 +143,22 @@ function changeNumber(n = 1){
 
 function cambiarTabla(opc = 1) {
     switch (opc) {
-        case 1: 
-        sendRequestRespuestas();
+        case 1: sendRequestRespuestas();
             break;
-        case 2: 
-        sendRequestCategoria();
+        case 2: sendRequestCategoria();
     }
+}
+
+function convertirMinutosHoras(numeroMinutos) {
+    let horas = Math.floor(parseFloat(numeroMinutos) / 60);
+
+    let minutos = `${
+        parseInt(numeroMinutos) % 60
+    }`
+    if (minutos.length === 1) {
+        minutos = "0" + minutos;
+    }
+    horaEnMinutos = `${horas}.${minutos}`;
+
+    return horaEnMinutos;
 }
