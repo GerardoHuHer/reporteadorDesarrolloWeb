@@ -375,7 +375,7 @@ function sendRequestRespuestas() {
             }
             console.log("Diccionario para Categorias: ", diccionarioCategoria);
             let resumen = `<div class="m-auto"><div class="row">
-                <div class="col">Sesiones: ${registrosTotal}</div>
+                <div class="col resultado-container">Sesiones: ${registrosTotal}</div>
                  <div class="col">Total Hrs. Profesor: ${
                     convertirMinutosHoras(horasTotales)
                 }</div>
