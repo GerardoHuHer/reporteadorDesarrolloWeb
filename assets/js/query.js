@@ -309,10 +309,11 @@ function sendRequestRespuestas() {
             html = "";
             respuesta = JSON.parse(response);
             if (respuesta.length === 0) {
+                html += "<h4 class='m-auto texto-ne'>No se encontró ningún resultado</h4>"
                 $("#tablas").html(html);
                 return;
             }
-            html = "<table class='m-auto'><thead><tr><th>ID</th><th>Correo</th><th>Fecha</th><th>Duración</th><th>Categoría</th><th>Asesor</th></tr></thead>"
+            html = "<table class='m-auto table-resultados'><thead><tr><th>ID</th><th>Correo</th><th>Fecha</th><th>Duración</th><th>Categoría</th><th>Asesor</th></tr></thead>"
             html += "<tbody>"
             for (let i = 0; i < respuesta.length; i++) {
                 html += `<tr>

@@ -7,6 +7,7 @@
     <title>Dashboard de la Muerte</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="assets/css/table.css" rel="stylesheet">
 
 </head>
 
@@ -14,15 +15,19 @@
 
     <form method="post">
         <div class="d-flex">
-            <div class="m-auto filtro-container">
+            <div class="m-auto input-container">
                 <h1>
                     Pruebita
                 </h1>
-                <div class="fechas">
-                    <input type="date" id="fecha-inicio" name="fecha-inicio" onchange="obtenerFechaInicio()">
-                    <button type="button" class="btn" onclick="borrarFechaIn()">Borrar</button>
-                    <input type="date" id="fecha-fin" name="fecha-fin" placeholder="Fecha de fin" onchange="obtenerFechaFin()">
-                    <button type="button" class="btn" onclick="borrarFechaFin()">Borrar</button>
+                <div class="d-flex fechas">
+                    <div class="fecha">
+                        <input class="input-fecha" type="date" id="fecha-inicio" name="fecha-inicio" onchange="obtenerFechaInicio()">
+                        <button type="button" class="btn" onclick="borrarFechaIn()">Borrar</button>
+                    </div>
+                    <div class="fecha">
+                        <input type="date" id="fecha-fin" name="fecha-fin" placeholder="Fecha de fin" onchange="obtenerFechaFin()">
+                        <button type="button" class="btn" onclick="borrarFechaFin()">Borrar</button>
+                    </div>
 
                 </div>
                 <div class="d-flex select-container">
@@ -33,14 +38,8 @@
                         <select class="form-select" name="sedes" id="sedes" onclick="anadirSede()"></select>
                     </div>
                     <div>
-                        <select class="form-select" name="categoria" id="categoria" onclick="anadirCategoria()">
-
-                        </select>
+                        <select class="form-select" name="categoria" id="categoria" onclick="anadirCategoria()"></select>
                     </div>
-                </div>
-                <div class="button-container">
-                    <button type="button" class="btn btn-secondary" onclick="borrarFull()">Eliminar</button>
-                    <button onclick="query()" type="button" class="btn btn-primary">Buscar</button>
                 </div>
 
                 <div id="filter-container" class="filter-container">
@@ -50,11 +49,20 @@
                     <div id="sedes-container"></div>
                     <div id="categorias-container"></div>
                 </div>
+                <div class="d-flex button-container">
+                    <button type="button" class="btn btn-secondary btn-eliminar" onclick="borrarFull()">Eliminar</button>
+                    <button onclick="query()" type="button" class="btn btn-primary btn-buscar">Buscar</button>
+                </div>
             </div>
         </div>
     </form>
     <div id="resumen" class="d-flex"></div>
-    <div class="d-flex"><ul class="m-auto"><li><button type="button" class="btn" onclick="changeNumber(1)">Resultados</button></li><li><button type="button" class="btn" onclick="changeNumber(2)">Categoria</button></li></ul></div>
+    <div class="d-flex">
+        <ul class="m-auto">
+            <li><button type="button" class="btn" onclick="changeNumber(1)">Resultados</button></li>
+            <li><button type="button" class="btn" onclick="changeNumber(2)">Categoria</button></li>
+        </ul>
+    </div>
     <div class="d-flex" id="tablas">
 
     </div>

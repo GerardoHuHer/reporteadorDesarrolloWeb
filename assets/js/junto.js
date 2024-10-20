@@ -61,6 +61,7 @@ function imprimirTalent() {
                 $("#talents-container").html(html);
                 return;
             }
+            // html += `<div class="d-flex lista-filtros"><div class="subtexto-filtros">Miembro talent: </div>`;
             for (let i = 0; i < talents.length; i++) {
                 html += `<div id="t-${
                     talents[i]["ID"]
@@ -72,6 +73,7 @@ function imprimirTalent() {
                     talents[i]["ID"]
                 }", 7)' type='button'>Borrar</button></div>`;
             }
+
             $("#talents-container").html(html);
         }
     });

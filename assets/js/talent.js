@@ -62,7 +62,7 @@ function imprimirTalent() {
                 return;
             }
             for (let i = 0; i < talents.length; i++) {
-                html += `<div id="t-${talents[i]["ID"]}">${
+                html += `<div class="" id="t-${talents[i]["ID"]}">${
                     talents[i]["Nombre"]
                 } <button id='talent-${
                     talents[i]["ID"]
