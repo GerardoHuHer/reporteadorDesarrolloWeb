@@ -18,98 +18,7 @@ var cate = [
     "LMS",
     "MRA"
 ];
-var diccionarioCategoria = {
-    "AIA": {
-        ID: "AIA",
-        Nombre: "Apoyo a la integridad Acádemica",
-        Sesiones: [],
-        Profesores: [],
-        TotalHorasProfes: 0,
-        TotalHorasTalent: 0,
-        DuracionMediaProf: 0,
-        DuracionMediaTalent: 0
-    },
-    "DCL": {
-        ID: "DCL",
-        Nombre: "Diseño de cursos en línea",
-        Sesiones: [],
-        Profesores: [],
-        TotalHorasProfes: 0,
-        TotalHorasTalent: 0,
-        DuracionMediaProf: 0,
-        DuracionMediaTalent: 0
-    },
-    "AEC": {
-        ID: "AEC",
-        Nombre: "Apoyo a las estrategias educativas",
-        Sesiones: [],
-        Profesores: [],
-        TotalHorasProfes: 0,
-        TotalHorasTalent: 0,
-        DuracionMediaProf: 0,
-        DuracionMediaTalent: 0
-    },
-    "ARC": {
-        ID: "ARC",
-        Nombre: "Asesoría de recursos digitales",
-        Sesiones: [],
-        Profesores: [],
-        TotalHorasProfes: 0,
-        TotalHorasTalent: 0,
-        DuracionMediaProf: 0,
-        DuracionMediaTalent: 0
-    },
-    "DIT": {
-        ID: "DIT",
-        Nombre: "Duda e información sobre Talent",
-        Sesiones: [],
-        Profesores: [],
-        TotalHorasProfes: 0,
-        TotalHorasTalent: 0,
-        DuracionMediaProf: 0,
-        DuracionMediaTalent: 0
-    },
-    "ACD": {
-        ID: "ACD",
-        Nombre: "Asesoría en competencias docentes",
-        Sesiones: [],
-        Profesores: [],
-        TotalHorasProfes: 0,
-        TotalHorasTalent: 0,
-        DuracionMediaProf: 0,
-        DuracionMediaTalent: 0
-    },
-    "SGT": {
-        ID: "SGT",
-        Nombre: "Seguimiento de capacitaciones",
-        Sesiones: [],
-        Profesores: [],
-        TotalHorasProfes: 0,
-        TotalHorasTalent: 0,
-        DuracionMediaProf: 0,
-        DuracionMediaTalent: 0
-    },
-    "LMS": {
-        ID: "LMS",
-        Nombre: "Asesoría en LMS",
-        Sesiones: [],
-        Profesores: [],
-        TotalHorasProfes: 0,
-        TotalHorasTalent: 0,
-        DuracionMediaProf: 0,
-        DuracionMediaTalent: 0
-    },
-    "MRA": {
-        ID: "MRA",
-        Nombre: "Medición de resultados de aprendizaje",
-        Sesiones: [],
-        Profesores: [],
-        TotalHorasProfes: 0,
-        TotalHorasTalent: 0,
-        DuracionMediaProf: 0,
-        DuracionMediaTalent: 0
-    }
-};
+var diccionarioCategoria = {};
 
 function query() {
     let filterContainer = document.getElementById("filter-container");
@@ -355,8 +264,7 @@ function sendRequestRespuestas() {
                 horasTotalesTalent += parseFloat(respuesta[j]["Duracion"])
 
             }
-            for(let i = 0; i < diccionarioCategoria.length; i++){
-                // profesores += diccionarioCategoria[cate[i]].Profesores.length;
+            for (let i = 0; i < diccionarioCategoria.length; i++) { // profesores += diccionarioCategoria[cate[i]].Profesores.length;
             }
             for (let j = 0; j < respuesta.length; j++) {
                 const totalProf = diccionarioCategoria[respuesta[j]["Llave"]].TotalHorasProfes;
@@ -393,42 +301,6 @@ function sendRequestRespuestas() {
         });
     }
 
-
-    // function sendRequestCategoria() {
-    //     html = "<table class='m-auto'><thead><tr><th>Key</th><th>Nombre</th><th>Sesiones</th><th>Profesores</th><th>Total Horas Prof</th><th>Total Horas TALENT</th><th>Duración Media Prof</th><th>Duración Media TALENT</th></tr></thead>"
-    //     html += "<tbody>"
-    //     diccionarioCategoria.forEach((elem, index) => {
-    //         html += `<tr>
-    //             <td>${
-    //             elem.cate[index]["ID"]
-    //         }</td>
-    //                                 <td>${
-    //             elem.cate[index]["Nombre"]
-    //         }</td>
-    //         <td>${
-    //             elem.cate[index]["Sesiones"].length
-    //         }</td>
-    //         <td>${
-    //             elem.cate[index]["Profesores"].length
-    //         }</td>
-    //         <td>${
-    //             elem.cate[index]["TotalHorasProfes"]
-    //         }</td>
-    //         <td>${
-    //             elem.cate[index]["TotalHorasTalent"]
-    //         }</td>
-    //           <td>${
-    //             elem.cate[i]["DuracionMediaProf"]
-    //         }</td>
-    //         <td>${
-    //             elem.cate[i]["DuracionMediaTalent"]
-    //         }</td>
-    //         </tr>`;
-    //         index++;
-    //     });
-    //     html += "</tbody></table>",
-    //     $("#tablas").html(html);
-    // }
 
     function sendRequestCategoria() {
         $("#tabla").html("");
