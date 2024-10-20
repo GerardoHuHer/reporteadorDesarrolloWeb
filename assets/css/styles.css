@@ -57,14 +57,37 @@ input[type="date"]:focus {
     border-radius: 10px;
     border: none;
     margin: 2.5px 0;
-    height: 4rem;    
+    height: 4rem;
+    transition: background-color 0.2s ease;
+ }
+ .form-select:hover {
+    background-color: #7d7769;
  }
 
  /*Lista de filtros*/
 .subtexto-filtros {
-    flex-direction: row;
+    font-size: 20px;
+    color: var(--azulFuerte);
+    margin-bottom: 1rem;
 }
- 
+
+.filter-container {
+    margin-top: 3rem;
+    background-color: #b2a9965f;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.filter-option {
+    display: inline-block;
+    background-color: #f3eee6;
+    color: #000;
+    border-radius: 3px;
+    padding-left: 10px;
+    margin-bottom: 4px;
+    font-size: 12px;
+}
+.btn-borrar-opcion { border: none; }
+
 .button-container { 
     flex-direction: row;
     justify-content: flex-end;
@@ -85,13 +108,6 @@ input[type="date"]:focus {
     background-color: var(--grisClaro);
     color: var(--grisFuerte);
     margin-right: 1rem;
-}
-
-.filter-container {
-    margin-top: 3rem;
-  background-color: #b2a99696;
-  padding: 2rem;
-  border-radius: 1rem;
 }
 
 .holamundo {

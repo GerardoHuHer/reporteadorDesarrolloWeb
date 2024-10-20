@@ -61,9 +61,9 @@ function imprimirTalent() {
                 $("#talents-container").html(html);
                 return;
             }
-            html += `<div class="subtexto-filtros">Miembro talent: </div>`;
+            html += `<div class="subtexto-filtros">Miembro talent </div>`;
             for (let i = 0; i < talents.length; i++) {
-                html += `<div class="" id="t-${
+                html += `<div class="filter-option" id="t-${
                     talents[i]["ID"]
                 }">${
                     talents[i]["Nombre"]
@@ -71,7 +71,7 @@ function imprimirTalent() {
                     talents[i]["ID"]
                 }' onclick='borrarTalent("talent-${
                     talents[i]["ID"]
-                }", 7)' type='button'>Borrar</button></div>`;
+                }", 7)' type='button' class='btn btn-borrar-opcion'><i class="bi bi-x-lg"></i></button></div>`;
             }
             $("#talents-container").html(html);
         }
@@ -158,7 +158,7 @@ function imprimirSede() {
         $("#sedes-container").html(html);
         return;
     }
-
+    html += `<div class="subtexto-filtros">Sede </div>`;
     for (let i = 0; i < idsSede.length; i++) {
         let nombre = "";
         console.log("idsSede ID: ", idsSede[i]);
@@ -170,13 +170,13 @@ function imprimirSede() {
                 break;
             }
         }
-
-        html += `<div id="s-${
+        
+        html += `<div class="filter-option" id="s-${
             idsSede[i]
         }">
                 ${nombre} <button onclick="borrarSede('sede-${
             idsSede[i]
-        }', 5)" type="button">Borrar</button>
+        }', 5)" type="button" class='btn btn-borrar-opcion'><i class="bi bi-x-lg"></i></button>
                </div>`
 
     }
@@ -309,9 +309,10 @@ function imprimirCategoria() {
                 console.log("Entré");
                 return;
             }
+            html += `<div class="subtexto-filtros">Categorías</div>`;
             for (let i = 0; i < categorias.length; i++) {
                 console.log("Entré al for");
-                html += `<div id="c-${
+                html += `<div class="filter-option" id="c-${
                     categorias[i]["ID"]
                 }">${
                     categorias[i]["Nombre"]
@@ -319,7 +320,7 @@ function imprimirCategoria() {
                     categorias[i]["ID"]
                 }' onclick='borrarCategoria("categoria-${
                     categorias[i]["ID"]
-                }", 10)' type='button'>Borrar</button></div>`;
+                }", 10)' type='button' class='btn btn-borrar-opcion'><i class="bi bi-x-lg"></i></button></div>`;
             }
             $("#categorias-container").html(html);
         }
