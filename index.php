@@ -53,6 +53,7 @@
             </div>
         </div>
     </form>
+    <div id="resumen" class="d-flex"></div>
     <div class="d-flex"><ul class="m-auto"><li><button type="button" class="btn" onclick="changeNumber(1)">Resultados</button></li><li><button type="button" class="btn" onclick="changeNumber(2)">Categoria</button></li></ul></div>
     <div class="d-flex" id="tablas">
 
