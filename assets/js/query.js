@@ -374,18 +374,18 @@ function sendRequestRespuestas() {
 
             }
             console.log("Diccionario para Categorias: ", diccionarioCategoria);
-            let resumen = `<div class="m-auto"><div class="row">
-                <div class="col resultado-container">Sesiones: ${registrosTotal}</div>
-                 <div class="col">Total Hrs. Profesor: ${
+            let resumen = `<div class="m-auto"><div class="row cinta">
+                <div class="col resultado-container-1">Sesiones <p class="dato-numerico">${registrosTotal}</p></div>
+                 <div class="col resultado-container-2">Total Hrs. Profesor <p class="dato-numerico">${
                     convertirMinutosHoras(horasTotales)
-                }</div>
-                 <div class="col">Duración Media Sesión: ${
+                }</p></div>
+                 <div class="col resultado-container-3">Duración Media Sesión <p class="dato-numerico">${
                     convertirMinutosHoras(duracionMedia)
-                }</div>
-                 <div class="col">Total Hrs. Talent: ${
+                }</p></div>
+                 <div class="col resultado-container-4">Total Hrs. Talent <p class="dato-numerico">${
                     convertirMinutosHoras(horasTotalesTalent)
-                }</div>
-                  <div class="col">Profesores: ${profesores}</div>
+                }</p></div>
+                  <div class="col resultado-container-5">Profesores <p class="dato-numerico">${profesores}</p></div>
         </div></div>`
                 $("#resumen").html(resumen)
 
@@ -497,7 +497,7 @@ function sendRequestRespuestas() {
         if (minutos.length === 1) {
             minutos = "0" + minutos;
         }
-        horaEnMinutos = `${horas}.${minutos}`;
+        horaEnMinutos = `${horas}:${minutos}`;
 
         return horaEnMinutos;
     }

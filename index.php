@@ -60,15 +60,13 @@
             </div>
         </div>
     </form>
-    <div id="resumen" class="d-flex"></div>
-    <div class="d-flex">
-        <ul class="m-auto">
-            <li><button type="button" class="btn" onclick="changeNumber(1)">Resultados</button></li>
-            <li><button type="button" class="btn" onclick="changeNumber(2)">Categoria</button></li>
-        </ul>
-    </div>
-    <div class="d-flex" id="tablas">
-
+    <div class="m-auto resultados-container">
+        <div id="resumen" class="d-flex resumen"></div>
+        <div class="d-flex navbar-container">
+            <button type="button" class="btn navbar-buttons" onclick="changeNumber(1)">Resultados</button>
+            <button type="button" class="btn navbar-buttons" onclick="changeNumber(2)">Categoria</button>
+        </div>
+        <div class="d-flex" id="tablas"></div>
     </div>
 </body>
 

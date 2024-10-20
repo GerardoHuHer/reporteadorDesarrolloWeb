@@ -1,15 +1,15 @@
 :root {
     --filter-container: #f3eee6;
-    --table-container: #1c1d20;
+    --tableContainer: #17171a;
     --dorado: #b2a996;
     --grisClaro: #E3E3E3;
     --grisFuerte: #4A4A4A;
     --naranja: #E4A672;
+    --amarillo: #F1C27D; 
+    --azulGrisaceo: #345995;
     --azulFuerte: #217293;
     --azulCielo: #9DB8D1;
     --azulClaro: #cbdee6;
-    --amarillo: #F1C27D;
-
 }
 
 body {
@@ -22,7 +22,6 @@ body {
     padding: 4rem;
     width: 80%;
     border-radius: 20px;
-
 }
 
 .fechas {
