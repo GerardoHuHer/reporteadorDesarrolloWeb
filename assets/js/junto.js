@@ -61,8 +61,9 @@ function imprimirTalent() {
                 $("#talents-container").html(html);
                 return;
             }
+            html += `<div class="subtexto-filtros">Miembro talent: </div>`;
             for (let i = 0; i < talents.length; i++) {
-                html += `<div id="t-${
+                html += `<div class="" id="t-${
                     talents[i]["ID"]
                 }">${
                     talents[i]["Nombre"]

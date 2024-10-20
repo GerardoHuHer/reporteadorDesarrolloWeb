@@ -1,8 +1,103 @@
-.select-container { flex-direction: column-reverse; }
-.button-container { margin-left: 0; }
+:root {
+    --filter-container: #f3eee6;
+    --table-container: #1c1d20;
+    --dorado: #b2a996;
+    --grisClaro: #E3E3E3;
+    --grisFuerte: #4A4A4A;
+    --naranja: #E4A672;
+    --azulFuerte: #217293;
+    --azulCielo: #9DB8D1;
+    --azulClaro: #cbdee6;
+    --amarillo: #F1C27D;
+
+}
+
+body {
+    background-color: #000;
+}
+
+/* ----------- FILTROS ------------ */
+.input-container {
+    background-color: var(--filter-container);
+    padding: 4rem;
+    width: 80%;
+    border-radius: 20px;
+
+}
+
+.fechas {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+
+input[type="date"] {
+    appearance: none;
+    -webkit-appearance: none;
+    color: var(--grisFuerte);
+    font-family: "Helvetica", arial, sans-serif;
+    font-size: 18px;
+    border:1px solid #ecf0f1;
+    border-radius: 1rem;
+    background:var(--amarillo);
+    padding:5px;
+    display: inline-block !important;
+    visibility: visible !important;
+}
+input[type="date"]:focus {
+    border: 4px solid var(--azulCielo); /* Añade un borde de color */
+    outline: none; /* Elimina el borde por defecto del navegador */
+}
+.select-container { 
+    flex-direction: column-reverse;
+    width: 100%;
+ }
+ .form-select {
+    background-color: var(--dorado);
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    margin: 2.5px 0;
+    height: 4rem;    
+ }
+
+ /*Lista de filtros*/
+.subtexto-filtros {
+    flex-direction: row;
+}
+ 
+.button-container { 
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-top: 4rem;
+}
+
+.btn-buscar, .btn-eliminar {
+    border-radius: 20px;
+    width: 127px;
+}
+
+.btn-buscar {
+    background-color: var(--azulFuerte);
+    margin-left: 1rem;
+}
+.btn-eliminar {
+    border: none;
+    background-color: var(--grisClaro);
+    color: var(--grisFuerte);
+    margin-right: 1rem;
+}
+
+.filter-container {
+    margin-top: 3rem;
+  background-color: #b2a99696;
+  padding: 2rem;
+  border-radius: 1rem;
+}
 
 .holamundo {
     background-color: blue;
     color: white;
     border-radius: 5px;
 }
+
