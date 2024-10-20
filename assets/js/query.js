@@ -111,28 +111,29 @@ var diccionarioCategoria = {
     }
 };
 
-function query() {
-    let filterContainer = document.getElementById("filter-container");
-    console.log("filterContainer: ", filterContainer);
-    if (! filterContainer) {
-        console.error("No se encontró el elemento con id 'filter-container'");
-        return;
+function getChildern(idContenedor) {
+    let ids = []
+    let container = document.getElementById(idContenedor)
+    if (!container) {
+        console.error("No se encontró el id "+ idContenedor);
+        return [];
     }
-    let parentDivs = filterContainer.children;
-
-    Array.from(parentDivs).forEach((parentDiv, index) => {
-        let childDivs = parentDiv.children;
-        let ids = [];
-
-        Array.from(childDivs).forEach(child => {
+    let children = container.children;
+        Array.from(children).forEach(child => {
             if (child.id) {
                 ids.push(child.id);
             }
-        });
+        }); 
+    return ids
+}
 
-        diccionario[index + 1] = ids;
+function query() {
+    diccionario[1] = getChildern("date-container-inicio")
+    diccionario[2] = getChildern("date-container-final")
+    diccionario[3] = getChildern("talents-container")
+    diccionario[4] = getChildern("sedes-container")
+    diccionario[5] = getChildern("categorias-container")
 
-    });
     if (diccionario[1].length === 0) {
         diccionario[1].push("1700-01-01");
     }

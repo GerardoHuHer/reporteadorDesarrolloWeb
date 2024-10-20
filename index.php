@@ -32,22 +32,26 @@
                 </div>
                 <div class="d-flex select-container">
                     <div>
-                        <select class="form-select" name="talent" id="talent" onclick="anadirTalent()"></select>
+                        <select class="form-select" name="categoria" id="categoria" onclick="anadirCategoria()"></select>
                     </div>
                     <div>
                         <select class="form-select" name="sedes" id="sedes" onclick="anadirSede()"></select>
                     </div>
                     <div>
-                        <select class="form-select" name="categoria" id="categoria" onclick="anadirCategoria()"></select>
+                        <select class="form-select" name="talent" id="talent" onclick="anadirTalent()"></select>
                     </div>
                 </div>
 
                 <div id="filter-container" class="filter-container">
-                    <div id="date-container-inicio"></div>
-                    <div id="date-container-final"></div>
-                    <div id="talents-container"></div>
-                    <div id="sedes-container"></div>
-                    <div id="categorias-container"></div>
+                    <div class="row">
+                        <div class="col" id="date-container-inicio"></div>
+                        <div class="col" id="date-container-final"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col" id="talents-container"></div>
+                        <div class="col" id="sedes-container"></div>
+                        <div class="col" id="categorias-container"></div>
+                    </div>
                 </div>
                 <div class="d-flex button-container">
                     <button type="button" class="btn btn-secondary btn-eliminar" onclick="borrarFull()">Eliminar</button>
