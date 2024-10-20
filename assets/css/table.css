@@ -1,0 +1,14 @@
+.table-resultados {
+    color: #fff;
+}
+
+.texto-notFound{
+    color: #fff;
+    height: 100vh;
+}
+
+/*-------- Cinta de resultados --------*/
+.resultado-container {
+    background-color: #fff;
+    color: red;
+}
