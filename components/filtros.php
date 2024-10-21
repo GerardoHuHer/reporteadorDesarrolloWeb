@@ -33,7 +33,7 @@
                 </div>
                 <div class="filter-container">
                     <div class="talents-container"></div>
-                    <div class="sedes-container"></div>
+                    <div class="d-flex sedes-container"></div>
                     <div class="categories-container"></div>
                 </div>
                 <div class="button-container">

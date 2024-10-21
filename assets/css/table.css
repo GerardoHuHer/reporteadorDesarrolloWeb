@@ -2,9 +2,8 @@
     color: #fff;
 }
 
-.texto-notFound{
-    color: #fff;
-    height: 100vh;
+.texto-not-found{
+    color: #5f5f5f;
 }
 
 .resultados-container { 
