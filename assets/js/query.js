@@ -4,7 +4,6 @@ var duracionMedia;
 var horasTotalesTalent;
 var profesores;
 
-
 var diccionario = {};
 var num;
 var cate = [
@@ -20,15 +19,20 @@ var cate = [
 ];
 var diccionarioCategoria = {};
 
-function getChildern(idContenedor) {
-    let ids = []
-    let container = document.getElementById(idContenedor)
-    if (!container) {
-        console.error("No se encontró el id "+ idContenedor);
-        return [];
+function query() {
+    let filterContainer = document.getElementById("filter-container");
+    console.log("filterContainer: ", filterContainer);
+    if (! filterContainer) {
+        console.error("No se encontró el elemento con id 'filter-container'");
+        return;
     }
-    let children = container.children;
-        Array.from(children).forEach(child => {
+    let parentDivs = filterContainer.children;
+
+    Array.from(parentDivs).forEach((parentDiv, index) => {
+        let childDivs = parentDiv.children;
+        let ids = [];
+
+        Array.from(childDivs).forEach(child => {
             if (child.id) {
                 ids.push(child.id);
             }
@@ -37,33 +41,32 @@ function getChildern(idContenedor) {
 }
 
 function query() {
-    diccionario[1] = getChildern("date-container-inicio")
-    diccionario[2] = getChildern("date-container-final")
-    diccionario[3] = getChildern("talents-container")
-    diccionario[4] = getChildern("sedes-container")
-    diccionario[5] = getChildern("categorias-container")
+  diccionario[1] = getChildern("date-container-inicio");
+  diccionario[2] = getChildern("date-container-final");
+  diccionario[3] = getChildern("talents-container");
+  diccionario[4] = getChildern("sedes-container");
+  diccionario[5] = getChildern("categorias-container");
 
-    if (diccionario[1].length === 0) {
-        diccionario[1].push("1700-01-01");
-    }
-    if (diccionario[2].length === 0) {
-        diccionario[2].push(new Date().toISOString().split('T')[0]);
-    }
-    console.log(diccionario);
-    if (! num) {
-        num = 1;
-    }
-    cambiarTabla(parseInt(num));
+  if (diccionario[1].length === 0) {
+    diccionario[1].push("1700-01-01");
+  }
+  if (diccionario[2].length === 0) {
+    diccionario[2].push(new Date().toISOString().split("T")[0]);
+  }
+  console.log(diccionario);
+  if (!num) {
+    num = 1;
+  }
+  cambiarTabla(parseInt(num));
 }
 
 
 function sendRequestRespuestas() {
-    registrosTotal = 0;
-    horasTotales = 0;
-    duracionMedia = 0;
-    horasTotalesTalent = 0;
-    profesores = 0;
-
+  registrosTotal = 0;
+  horasTotales = 0;
+  duracionMedia = 0;
+  horasTotalesTalent = 0;
+  profesores = 0;
 
     $("#tabla").html("");
     diccionarioCategoria = {
@@ -219,11 +222,10 @@ function sendRequestRespuestas() {
             html = "";
             respuesta = JSON.parse(response);
             if (respuesta.length === 0) {
-                html += "<h4 class='m-auto texto-ne'>No se encontró ningún resultado</h4>"
                 $("#tablas").html(html);
                 return;
             }
-            html = "<table class='m-auto table-resultados'><thead><tr><th>ID</th><th>Correo</th><th>Fecha</th><th>Duración</th><th>Categoría</th><th>Asesor</th></tr></thead>"
+            html = "<table class='m-auto'><thead><tr><th>ID</th><th>Correo</th><th>Fecha</th><th>Duración</th><th>Categoría</th><th>Asesor</th></tr></thead>"
             html += "<tbody>"
             for (let i = 0; i < respuesta.length; i++) {
                 html += `<tr>
@@ -283,7 +285,7 @@ function sendRequestRespuestas() {
             }
             console.log("Diccionario para Categorias: ", diccionarioCategoria);
             let resumen = `<div class="m-auto"><div class="row">
-                <div class="col resultado-container">Sesiones: ${registrosTotal}</div>
+                <div class="col">Sesiones: ${registrosTotal}</div>
                  <div class="col">Total Hrs. Profesor: ${
                     convertirMinutosHoras(horasTotales)
                 }</div>
