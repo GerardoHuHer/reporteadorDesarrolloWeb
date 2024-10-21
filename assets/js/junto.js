@@ -1,3 +1,57 @@
+var fechas = [];
+var fechaInicio = "";
+var fechaFinal = "";
+
+function obtenerFechaInicio() {
+    let input = document.getElementById("fecha-inicio");
+    fechaInicio = input.value;
+    let fechaString = input.value;
+    if (fechaInicio) {
+        console.log("Fecha inicio seleccionada:", fechaInicio);
+        console.log("Fecha inicio seleccionada en string:", fechaString);
+        imprimirFechaInicio();
+    } else {
+        document.getElementById("fecha-inicio").innerHTML = "";
+        imprimirFechaInicio();
+        console.error("No se detectó la fecha inicio");
+    }
+}
+
+function obtenerFechaFin() {
+    let input = document.getElementById("fecha-fin");
+    fechaFinal = input.value;
+    if (fechaFinal) {
+        console.log("Fecha fin seleccionada:", fechaFinal);
+        imprimirFechaFin();
+        // console.log("Fecha fin seleccionada en string:", fechaString);
+    } else {
+        document.getElementById("fecha-inicio").innerHTML = "";
+        imprimirFechaFin();
+        console.error("No se detectó la fecha final");
+    }
+}
+
+function imprimirFechaInicio() {
+    fecha = fechaInicio === "" ? "" : fechaInicio;
+    let result = document.getElementById("date-container-inicio").innerHTML = `<div class="fecha-filtro" id="${fecha}"><p class="subtexto-fecha">Desde: </p> ${
+        fechaInicio === "" ? "" : fecha
+    }</div>`;
+    console.log("Result: ", result);
+}
+
+function imprimirFechaFin() {
+    document.getElementById("date-container-final").innerHTML = "";
+    currentDate = new Date().toISOString().split('T')[0];
+    console.log("CurrentDate: ", currentDate);
+    fecha = fechaFinal === "" ? currentDate : fechaFinal;
+    let result = document.getElementById("date-container-final").innerHTML = `<div class="fecha-filtro" id="${fecha}"><p class="subtexto-fecha">Hasta: </p>${
+        fechaFinal === "" ? "Fecha Actual" : fecha
+    }</div>`;
+    console.log("Result: ", result);
+}
+imprimirFechaFin();
+
+
 function talent() {
     $.ajax({
         url: "./sql.php",
@@ -63,7 +117,7 @@ function imprimirTalent() {
             }
             html += `<div class="subtexto-filtros">Miembro talent: </div>`;
             for (let i = 0; i < talents.length; i++) {
-                html += `<div class="" id="t-${
+                html += `<div class="filter-option" id="t-${
                     talents[i]["ID"]
                 }">${
                     talents[i]["Nombre"]
@@ -71,7 +125,7 @@ function imprimirTalent() {
                     talents[i]["ID"]
                 }' onclick='borrarTalent("talent-${
                     talents[i]["ID"]
-                }", 7)' type='button'>Borrar</button></div>`;
+                }", 7)' type='button' class='btn btn-borrar-opcion'><i class="bi bi-x-lg"></i></button></div>`;
             }
             $("#talents-container").html(html);
         }
@@ -118,26 +172,8 @@ function sede() {
         html += "<option value='" + sedesD[i]["ID"] + "'> " + sedesD[i]["Nombre"] + "</option>";
     }
     $("#sedes").html(html);
-    // $.ajax({
-    //     url: "./sql.php",
-    //     method: "post",
-    //     data: {
-    //         query: "SELECT ID, id_Sede FROM `asesoria` ;"
-    //     },
-    //     success: (response) => { // sedes = JSON.parse(response);
-    //         html = "<option value='' disabled selected>Selecciona una sede</option>";
-    //         // for (let i = 0; i < sedes.length; i++) {
-    //         //     html += "<option value='" +  sedes[i]["ID"] + "'> " + sedes[i]["id_Sede"] + "</option>";
-    //         // }
-    //         console.log(response);
-    //         console.log("SedesD: ", sedesD);
-    //         for (let i = 0; i < sedesD.length; i++) {
-    //             html += "<option value='" + sedesD[i]["ID"] + "'> " + sedesD[i]["Nombre"] + "</option>";
-    //         }
-    //         $("#sedes").html(html);
-    //     }
-    // });
-}sede();
+}
+sede();
 
 var idsSede = [];
 
@@ -158,7 +194,7 @@ function imprimirSede() {
         $("#sedes-container").html(html);
         return;
     }
-
+    html += `<div class="subtexto-filtros">Sede </div>`;
     for (let i = 0; i < idsSede.length; i++) {
         let nombre = "";
         console.log("idsSede ID: ", idsSede[i]);
@@ -171,54 +207,15 @@ function imprimirSede() {
             }
         }
 
-        html += `<div id="s-${
+        html += `<div class="filter-option" id="s-${
             idsSede[i]
         }">
                 ${nombre} <button onclick="borrarSede('sede-${
             idsSede[i]
-        }', 5)" type="button">Borrar</button>
+        }', 5)" type="button" class='btn btn-borrar-opcion'><i class="bi bi-x-lg"></i></button>
                </div>`
-
     }
     $("#sedes-container").html(html);
-    // $.ajax({
-    //     url: "./sql.php",
-    //     method: "post",
-    //     data: {
-    //         query: query_aux
-    //     },
-    //     success: (response) => {
-    //         html = "";
-    //         if (idsSede.length === 0) {
-    //             html = "";
-    //             $("#sedes-container").html(html);
-    //             return;
-    //         }
-
-    //         for (let i = 0; i < idsSede.length; i++) {
-    //             let nombre = "";
-    //             console.log("idsSede ID: ", idsSede[i]);
-    //             for (let j = 0; j < sedesD.length; j++) {
-    //                 console.log("Entre al for de j");
-    //                 if (sedesD[j]["ID"] === parseInt(idsSede[i])) {
-    //                     nombre = sedesD[j]["Nombre"];
-    //                     console.log("Nombre: ", nombre);
-    //                     break;
-    //                 }
-    //             }
-
-    //             html += `<div id="s-${
-    //                 idsSede[i]
-    //             }">
-    //             ${nombre} <button onclick="borrarSede("sede-${
-    //                 idsSede[i]
-    //             }", 5)" type="button">Borrar</button>
-    //            </div>`
-
-    //         }
-    //         $("#sedes-container").html(html);
-    //     }
-    // });
 }
 
 function borrarSede(n, m) {
@@ -226,7 +223,6 @@ function borrarSede(n, m) {
     idsSede = idsSede.filter(el => el !== n);
     imprimirSede();
 }
-
 
 function categoria() {
     $.ajax({
@@ -250,23 +246,16 @@ function categoria() {
                     categorias[i]["Nombre"]
                 }</option>`;
             }
-            // onclick='anadirCategoria('categoriaOP"+ categorias[i]['ID'] +"')'
             console.log(html);
             $("#categoria").html(html);
         }
     });
 }
-
 categoria();
 
 var idsCategoria = [];
 
 function anadirCategoria() {
-    // console.log(idCategoria);
-    // selectedCategory = document.getElementById(idCategoria).value;
-    // idsCategoria.push(selectedCategory);
-    // console.log(idsCategoria);
-
     selectedValue = document.getElementById("categoria").value;
     console.log("Categoría: ", selectedValue);
     if (selectedValue !== "" && ! idsCategoria.includes(selectedValue)) {
@@ -309,9 +298,10 @@ function imprimirCategoria() {
                 console.log("Entré");
                 return;
             }
+            html += `<div class="subtexto-filtros">Categorías </div>`;
             for (let i = 0; i < categorias.length; i++) {
                 console.log("Entré al for");
-                html += `<div id="c-${
+                html += `<div class="filter-option" id="c-${
                     categorias[i]["ID"]
                 }">${
                     categorias[i]["Nombre"]
@@ -319,7 +309,7 @@ function imprimirCategoria() {
                     categorias[i]["ID"]
                 }' onclick='borrarCategoria("categoria-${
                     categorias[i]["ID"]
-                }", 10)' type='button'>Borrar</button></div>`;
+                }", 10)' type='button' class='btn btn-borrar-opcion'><i class="bi bi-x-lg"></i></button></div>`;
             }
             $("#categorias-container").html(html);
         }
@@ -340,6 +330,8 @@ function borrarFull() {
     ids = [];
     idsCategoria = [];
     idsSede = [];
+    fechaFinal = "";
+    imprimirFechaFin();
 }
 
 function borrarFiltros() {
@@ -359,7 +351,8 @@ function borrarFechaIn() {
 }
 
 function borrarFechaFin() {
+    fechaFinal = "";
     document.getElementById("fecha-fin").value = "";
     document.getElementById("date-container-final").innerHTML = "";
-
+    imprimirFechaFin();
 }
