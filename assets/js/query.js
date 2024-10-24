@@ -364,7 +364,9 @@ function cambiarTabla(opc) {
         case 1: sendRequestRespuestas();
             break;
         case 2: sendRequestCategoria();
+            break;
         case 3: sendRequestAsesor();
+            break;
     }
 }
 
@@ -426,26 +428,34 @@ WHERE
         data: {
             query: queryAsesor
         },
-        success(reponse) {
-            for (let i = 0; response.length; i++) {
-
-                id = response[i]["ID"]
-                correo = response[i]["Correo"]
-                nombre = response[i]["Nombre"]
-                duracion = response[i]["Duracion"]
+        success: (response) => {
+          console.log("Response Asesores: ", response)
+          html = "";
+          let respuesta = JSON.parse(response);
+          console.log("Respuesta Asesores: ", respuesta);
+            for (let i = 0; respuesta.length; i++) {
+                let id = respuesta[i]["ID"]
+                console.log("ID: ", id);
+                let correo = respuesta[i]["Correo"]
+                console.log("Correo: ", correo )
+                let nombre = respuesta[i]["Nombre"]
+                console.log("Nombre: ",nombre )
+                let duracion = respuesta[i]["Duracion"]
+                console.log("Duracion: ", duracion )
 
                 if (! diccionarioAsesor[id]) {
+                    console.log("Entré al if")
                     diccionarioAsesor[id] = {
                       // Id
-                        id: response[i]["ID"],
+                        id: respuesta[i]["ID"],
                         // Correo
-                        correo: response[i]["Correo"],
+                        correo: respuesta[i]["Correo"],
                         // Nombre
-                        nombre: response[i]["Nombre"],
+                        nombre: respuesta[i]["Nombre"],
                         // cantidad sesiones
                         sesiones: 1,
                         // Ocupamos este para la duración media
-                        totalDuracion: response[i]["Duracion"],
+                        totalDuracion: respuesta[i]["Duracion"],
                         duracionMediaSesion: 0,
                         porcentajeTalent: 0,
                         porcentajeProf: 0,
