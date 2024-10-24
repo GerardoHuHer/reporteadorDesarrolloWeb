@@ -198,6 +198,7 @@ function sendRequestRespuestas() {
     queryResultados += ") ";
   }
   console.log("Query de la muerte: ", queryResultados);
+  let resumen;
   $.ajax({
     url: "./sql.php",
     method: "post",
@@ -205,11 +206,22 @@ function sendRequestRespuestas() {
       query: queryResultados,
     },
     success: (response) => {
+      console.log("Response: ",response);
       html = "";
       respuesta = JSON.parse(response);
       if (respuesta.length === 0) {
         html +=
           "<h4 class='m-auto texto-not-found'>No se encontró ningún resultado</h4>";
+          resumen = `<div class="m-auto"><div class="row cinta">
+                <div class="col resultado-container-1">Sesiones <p class="dato-numerico">0</p></div>
+                 <div class="col resultado-container-2">Total Hrs. Profesor <p class="dato-numerico">0:0
+                 </p></div>
+                 <div class="col resultado-container-3">Duración Media Sesión <p class="dato-numerico">0:0</p></div>
+                 <div class="col resultado-container-4">Total Hrs. Talent <p class="dato-numerico">0:0</p></div>
+                  <div class="col resultado-container-5">Profesores <p class="dato-numerico">0</p></div>
+        </div></div>`;
+      $("#resumen").html(resumen);
+
         $("#tablas").html(html);
         return;
       }
@@ -281,7 +293,7 @@ function sendRequestRespuestas() {
         duracionMediaTalent = horasTotalesTalent / registrosTotal;
       }
       console.log("Diccionario para Categorias: ", diccionarioCategoria);
-      let resumen = `<div class="m-auto"><div class="row cinta">
+      resumen = `<div class="m-auto"><div class="row cinta">
                 <div class="col resultado-container-1">Sesiones <p class="dato-numerico">${registrosTotal}</p></div>
                  <div class="col resultado-container-2">Total Hrs. Profesor <p class="dato-numerico">${convertirMinutosHoras(
                    horasTotales
@@ -340,6 +352,8 @@ function cambiarTabla(opc) {
       break;
     case 2:
       sendRequestCategoria();
+    case 3:
+      sendRequestAsesor();
   }
 }
 
