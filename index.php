@@ -76,7 +76,8 @@
         <div class="d-flex navbar-container">
             <button type="button" class="btn navbar-buttons" onclick="changeNumber(1)">Resultados</button>
             <button type="button" class="btn navbar-buttons" onclick="changeNumber(2)">Categoria</button>
-        </div>
+            <button type="button" class="btn navbar-buttons" onclick="changeNumber(3)">Asesor</button>
+       </div>
         <div class="d-flex" id="tablas"></div>
     </div>
 </body>
