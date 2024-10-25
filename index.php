@@ -74,9 +74,9 @@
     <div class="m-auto resultados-container">
         <div id="resumen" class="d-flex resumen"></div>
         <div class="d-flex navbar-container">
-            <button type="button" class="btn navbar-buttons" onclick="changeNumber(1)">Resultados</button>
-            <button type="button" class="btn navbar-buttons" onclick="changeNumber(2)">Categoria</button>
-            <button type="button" class="btn navbar-buttons" onclick="changeNumber(3)">Asesor</button>
+            <button type="button" class="btn navbar-buttons" onclick="cambiarTabla(1)">Resultados</button>
+            <button type="button" class="btn navbar-buttons" onclick="cambiarTabla(2)">Categoria</button>
+            <button type="button" class="btn navbar-buttons" onclick="cambiarTabla(3)">Asesor</button>
        </div>
         <div class="d-flex" id="tablas"></div>
     </div>
