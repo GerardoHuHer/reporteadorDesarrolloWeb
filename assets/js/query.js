@@ -59,7 +59,7 @@ function query() {
     }
     console.log(diccionario);
     cambiarTabla(1);
-    cambiarTabla(parseInt(num));
+    // cambiarTabla(parseInt(num));
 }
 
 function sendRequestRespuestas() {
@@ -468,16 +468,11 @@ WHERE
                     diccionarioAsesor[respuesta[i]["ID"]].totalDuracion += parseFloat(respuesta[i]["Duracion"]);
                 }
             }
-            // for (let i = 0; i < arrTalents.length; i++) {
-            //     diccionarioAsesor[respuesta[i]["ID"]].duracionMediaSesion = diccionarioAsesor[respuesta[i]["ID"]].totalDuracion / diccionarioAsesor[respuesta[i]["ID"]].sesiones;
-            //     diccionarioAsesor[respuesta[i]["ID"]].porcentajeTalent = (diccionarioAsesor[respuesta[i]["ID"]].totalDuracion * 100) / horasTotalesTalent;
-            //     diccionarioAsesor[respuesta[i]["ID"]].porcentajeProf = (diccionarioAsesor[respuesta[i]["ID"]].totalDuracion * 100) / horasTotales;
-            // }
+
             Object.values(diccionarioAsesor).forEach((elem) => {
                 elem.duracionMediaSesion = elem.totalDuracion / elem.sesiones;
                 elem.porcentajeTalent = (elem.totalDuracion * 100) / horasTotalesTalent;
-                elem.porcentajeProf = (elem.totalDuracion * 100) / horasTotales;
-
+                elem.porcentajeProf = (elem.totalDuracion  / horasTotales)*100;
             });
 
 
