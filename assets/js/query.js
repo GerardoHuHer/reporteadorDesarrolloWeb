@@ -542,3 +542,5 @@ function sumaArr(arr) {
 function myRound(num){
     return (Math.truc(num*100)/100)
 }
+
+    
